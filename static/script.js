@@ -4,7 +4,7 @@ $( document ).ready(function() {
   }
 });
 
-window.interval = 1000;
+window.interval = 5000;
 window.lastRequest = 0;
 window.slideType = 0;
 
