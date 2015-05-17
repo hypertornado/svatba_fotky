@@ -1,0 +1,22 @@
+{{define "index"}}
+{{template "header" .}}
+
+  <h1 id="first">Nahraj fotku a pošli ji na plátno</h1>
+
+  <h2 id="second">Fotky bude mít Béba s Radkem jako památku na svatbu.</h2>
+
+  <script type="text/javascript">
+  function load() {
+    document.getElementById("filebutton").style.display = "none";
+    document.getElementById('first').textContent = "Nahrávám...";
+    document.getElementById('second').textContent = "";
+    document.getElementById('index-form').submit();
+  }
+  </script>
+
+  <form id="index-form" class="index-form" method="POST" action="/upload" enctype="multipart/form-data">
+    <input id="filebutton" type="file" value="Vybrat fotku" name="file" class="fileinput" onchange="load()">
+    <input type="submit" value="Odeslat fotku" class="send">
+  </form>
+{{template "footer"}}
+{{end}}

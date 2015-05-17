@@ -1,0 +1,8 @@
+{{define "images"}}
+{{template "header" .}}
+  <h1>Images</h1>
+  {{ range $key, $value := .images }}
+    <a href="{{$value.Path}}"><img src="{{$value.Path}}" class="img-list"></a><br>
+  {{ end }}
+{{template "footer"}}
+{{end}}
