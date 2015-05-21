@@ -52,8 +52,22 @@ func (i *Images) GetLast() *ImgInfo {
 	return i.ImgInfos[0]
 }
 
+func (i *Images) GetSmart() *ImgInfo {
+	ret := i.GetLast()
+
+	if ret.Uploaded.Add(2*time.Minute).Unix() < time.Now().Unix() {
+		ret = i.GetRandom()
+	}
+	return ret
+}
+
 func (i *Images) GetFriends() *ImgInfo {
-	newI := i.Filter("images")
+	newI := i.Filter("images/")
+	return newI.GetRandom()
+}
+
+func (i *Images) GetChildren() *ImgInfo {
+	newI := i.Filter("br/")
 	return newI.GetRandom()
 }
 

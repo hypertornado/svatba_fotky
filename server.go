@@ -91,6 +91,10 @@ func (h *ServerHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			img = h.images.GetLast()
 		case "friends":
 			img = h.images.GetFriends()
+		case "children":
+			img = h.images.GetChildren()
+		case "smart":
+			img = h.images.GetSmart()
 		default:
 			img = h.images.GetRandom()
 		}
